@@ -20,16 +20,47 @@
               <v-card-title class="title">Рабочее напряжение</v-card-title>
               <v-card-text class="card-text">
                 <v-radio-group v-model="radioButtons.voltage" row>
-                  <v-radio label="до 6 кВ" value="radio-1"></v-radio>
-                  <v-radio label="до 10 кВ" value="radio-2"></v-radio>
-                  <v-radio label="Все" value="all"></v-radio>
+                  <v-radio value="radio-1">
+                    <template v-slot:label>
+                      <div>
+                        до 6 кВ
+                        <span class="grey--text">(10)</span>
+                      </div>
+                    </template>
+                  </v-radio>
+                  <v-radio value="radio-2">
+                    <template v-slot:label>
+                      <div>
+                        до 10 кВ
+                        <span class="grey--text">(20)</span>
+                      </div>
+                    </template>
+                  </v-radio>
+                  <v-radio value="all">
+                    <template v-slot:label>
+                      <div>
+                        Все
+                        <span class="grey--text">(30)</span>
+                      </div>
+                    </template>
+                  </v-radio>
                 </v-radio-group>
               </v-card-text>
             </v-card>
           </v-col>
           <v-col cols="4">
             <v-card>
-              <v-card-title class="title">Материал изоляции</v-card-title>
+              <v-card-title class="title">
+                Материал изоляции
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-btn icon v-on="on">
+                      <v-icon small>far fa-question-circle</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>ЭПР - Этиленпропиленовая резина (Скорее всего придется убрать)</span>
+                </v-tooltip>
+              </v-card-title>
               <v-card-text class="card-text">
                 <v-radio-group v-model="radioButtons.material" row>
                   <v-radio label="Бумага" value="radio-1"></v-radio>
