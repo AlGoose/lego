@@ -4,18 +4,21 @@
 
     <v-content>
       <Properties />
+      <ProductsTable />
     </v-content>
   </v-app>
 </template>
 
 <script>
 import Properties from "./components/Properties";
+import ProductsTable from "./components/ProductsTable";
 
 export default {
   name: "App",
 
   components: {
-    Properties
+    Properties,
+    ProductsTable
   },
 
   data: () => ({
